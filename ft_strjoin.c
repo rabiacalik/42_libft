@@ -1,40 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcalik <rcalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 15:48:23 by rcalik            #+#    #+#             */
-/*   Updated: 2022/11/18 15:07:13 by rcalik           ###   ########.fr       */
+/*   Created: 2022/11/18 13:00:51 by rcalik            #+#    #+#             */
+/*   Updated: 2022/11/18 14:25:30 by rcalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if ((char)c == 0)
-		return ((char *)(s + ft_strlen(s)));
-	while (*s)
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+	if (!s1)
+		return (NULL);
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		str[j++] = s1[i];
+		i++;
 	}
-	return (0);
+	i = 0;
+	while (s2[i])
+	{
+		str[j++] = s2[i];
+		i++;
+	}
+	str[j] = '\0';
+	return (str);
 }
 /*
-int main () {
-   const char str[] = "rabia.test";
-   const char ch = '.';
-   char *ret;
+int	main()
+{
+	char	ab[] = "rabia";
+	char	ac[] = "calik";
 
-   ret = ft_strchr(str, ch);
-
-   printf("|%c| > |%s|\n", ch, ret);
-
-   return(0);
+	printf("%s", ft_strjoin(ab, ac));
 }
 */

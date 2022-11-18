@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcalik <rcalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 15:48:23 by rcalik            #+#    #+#             */
-/*   Updated: 2022/11/18 15:07:13 by rcalik           ###   ########.fr       */
+/*   Created: 2022/11/18 14:35:20 by rcalik            #+#    #+#             */
+/*   Updated: 2022/11/18 14:37:06 by rcalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if ((char)c == 0)
-		return ((char *)(s + ft_strlen(s)));
-	while (*s)
+	char	*new_str;
+	size_t	i;
+
+	if (!s)
+		return (0);
+	new_str = (char *)malloc (ft_strlen(s) + 1);
+	if (!new_str)
+		return (0);
+	i = 0;
+	while (i < ft_strlen(s))
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		new_str[i] = f(i, s[i]);
+		i++;
 	}
-	return (0);
+	new_str[i] = '\0';
+	return (new_str);
 }
 /*
-int main () {
-   const char str[] = "rabia.test";
-   const char ch = '.';
-   char *ret;
+char	test(unsigned int i, char c)
+{
+	i = 0;
+	return (c - 32);
+}
 
-   ret = ft_strchr(str, ch);
-
-   printf("|%c| > |%s|\n", ch, ret);
-
-   return(0);
+int	main()
+{
+	printf("abc > ABC : %s\n", ft_strmapi("abc", test));
 }
 */

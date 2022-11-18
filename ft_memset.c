@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcalik <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: rcalik <rcalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 15:52:09 by rcalik            #+#    #+#             */
-/*   Updated: 2022/10/27 16:06:40 by rcalik           ###   ########.tr       */
+/*   Created: 2022/11/17 14:14:51 by rcalik            #+#    #+#             */
+/*   Updated: 2022/11/17 14:14:55 by rcalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -25,13 +24,3 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
-
-/*
-int main()
-{
-	char a[] = "rabiacalik";
-
-	printf("%s", ft_memset(a, 'x', 4));
-	return (0);
-}
-*/

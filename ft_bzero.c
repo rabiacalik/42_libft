@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcalik <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: rcalik <rcalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 16:11:01 by rcalik            #+#    #+#             */
-/*   Updated: 2022/10/27 16:12:56 by rcalik           ###   ########.tr       */
+/*   Created: 2022/11/17 14:23:29 by rcalik            #+#    #+#             */
+/*   Updated: 2022/11/17 14:23:43 by rcalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-include "libft.h"
+#include "libft.h"
 
 void	ft_bzero(void *b, size_t n)
 {

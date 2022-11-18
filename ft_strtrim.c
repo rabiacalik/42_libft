@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcalik <rcalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 15:48:23 by rcalik            #+#    #+#             */
-/*   Updated: 2022/11/18 15:07:13 by rcalik           ###   ########.fr       */
+/*   Created: 2022/11/18 14:26:20 by rcalik            #+#    #+#             */
+/*   Updated: 2022/11/18 14:30:09 by rcalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdlib.h"
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if ((char)c == 0)
-		return ((char *)(s + ft_strlen(s)));
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	return (0);
+	int	i;
+
+	if (!s1 || !set)
+		return (0);
+	i = 0;
+	while (ft_strchr(set, *s1) && *s1)
+		s1++;
+	i = ft_strlen(s1) - 1;
+	while (i && ft_strchr(set, s1[i]))
+		i--;
+	return (ft_substr(s1, 0, i + 1));
 }
 /*
-int main () {
-   const char str[] = "rabia.test";
-   const char ch = '.';
-   char *ret;
-
-   ret = ft_strchr(str, ch);
-
-   printf("|%c| > |%s|\n", ch, ret);
-
-   return(0);
+int main()
+{
+    char a[] = "++++---hello_people+---++-";
+    char b[] = "+-";
+    char *c = ft_strtrim(a, b);
+    printf("%s",c);
+    return 0;
 }
 */

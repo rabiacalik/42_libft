@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcalik <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: rcalik <rcalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 17:32:24 by rcalik            #+#    #+#             */
-/*   Updated: 2022/10/27 17:47:20 by rcalik           ###   ########.tr       */
+/*   Created: 2022/11/17 14:25:12 by rcalik            #+#    #+#             */
+/*   Updated: 2022/11/17 14:52:02 by rcalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	free(tmp);
 	return (dst);
 }
-
+/*
 int main()
 {
     char a[] = "Aticleworld";
@@ -51,3 +51,4 @@ int main()
     printf("%s",b);
     return 0;
 }
+*/

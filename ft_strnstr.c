@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcalik <rcalik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 16:14:37 by rcalik            #+#    #+#             */
-/*   Updated: 2022/11/17 16:31:04 by rcalik           ###   ########.fr       */
+/*   Created: 2022/11/18 11:42:41 by rcalik            #+#    #+#             */
+/*   Updated: 2022/11/18 11:45:06 by rcalik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,35 @@
 #include <stdio.h>
 #include <string.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
+	size_t	j;
 
-	if (n == 0)
-		return (0);
+	if (needle[0] == '\0')
+		return ((char *)haystack);
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0')
+	while (haystack[i] && i < len)
 	{
-		if (i < (n - 1))
-			i++;
-		else
-			return (0);
+		j = 0;
+		while (haystack[i + j] && needle[j] && (i + j) < len
+			&& haystack[i + j] == needle[j])
+			j++;
+		if (!needle[j])
+			return ((char *)(haystack + i));
+		i++;
 	}
-	return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
+	return (NULL);
 }
 /*
 int main () {
-   char str1[15];
-   char str2[15];
-   int ret;
+   const char haystack[20] = "rabia";
+   const char needle[10] = "bi";
+   char *ret;
 
-   strcpy(str1, "a");
-   strcpy(str2, "b");
+   ret = ft_strnstr(haystack, needle, 20);
 
-   ret = strncmp(str1, str2, 1);
-
-   if(ret < 0) {
-      printf("str1(az) < str2(fazla)");
-   } else if(ret > 0) {
-      printf("str2(az) < str1(fazla)");
-   } else {
-      printf("str1 === str2");
-   }
+   printf("> : %s\n", ret);
 
    return(0);
 }
